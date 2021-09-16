@@ -1,0 +1,21 @@
+div{
+    height: 100px;
+    color: cornsilk;
+    background-color: blue;
+    position: center;
+}
+h1{
+    font-style: italic
+}
+h5{
+    font-style: italic;
+}
+
+img{
+    display:block;
+      margin:auto;
+  
+}
+form{
+    position:center;
+}
