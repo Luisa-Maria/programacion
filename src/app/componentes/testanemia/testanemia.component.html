@@ -4,81 +4,72 @@
       <h4>En HemoHearth trabajamos por tu salud</h4>
   </div>
   
-    <div class="row mt-5">
-      <ng-template #sinarticulos><p>No hay articulos.</p></ng-template>
-  
+  <div class="row mt-5">
+    <div *ngIf="showAlertNotification" class="alert alert-success" role="alert">
+      Guardado exitosamente!
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit($event)">
       <div class="form-floating mb-3">
-        <input id="desc" class="form-control" placeholder="Nombre" type="text" />
+        <input id="desc" class="form-control" placeholder="Nombre" type="text" formControlName="firstName" />
         <label for="desc"> Nombre</label>
       </div>
   
       <div class="form-floating mb-3">
-        <input class="form-control" placeholder="Apellido" type="text" />
+        <input class="form-control" placeholder="Apellido" type="text" formControlName="lastName"/>
         <label for="desc"> Apellido</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input id="desc" class="form-control" placeholder="Cedula" type="number" formControlName="document" />
+        <label for="desc"> Cedula</label>
       </div>
   
       <div class="form-floating mb-3">
-        <input id="desc" class="form-control" placeholder="Cedula" type="number" />
+        <input id="desc" class="form-control" placeholder="Cedula" type="number"formControlName="edad" />
         <label for="desc"> Edad</label>
       </div>
       <div class="form-floating mb-3">
-        <input class="form-control" placeholder="correo" type="text" />
+        <input class="form-control" placeholder="correo" type="text" formControlName="correoElectronico"/>
         <label for="desc"> Correo Electronico</label>
       </div>
 
       <div>
         <label for="desc"> Sexo</label>
+        <select class="form-select" aria-label="nivel" formControlName="sexo">
+          <option selected>sexo</option>
+          <option value="1">F</option>
+          <option value="2">M</option>
+        </select>
+        </div>
         <br>
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          F
-        </label>
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          M
-        </label>
-        <br>
-      </div>
-          
+      
           <div>
             <label for="desc"> Nivel de Hemoglobina</label>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-               <label class="form-check-label" for="flexSwitchCheckDefault">10.0% - 18.0% g</label>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-               <label class="form-check-label" for="flexSwitchCheckDefault">11.0% - 15.0% g</label>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-               <label class="form-check-label" for="flexSwitchCheckDefault">11.5% - 15.0% g</label>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-               <label class="form-check-label" for="flexSwitchCheckDefault">12.0% - 16.0% g</label>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-               <label class="form-check-label" for="flexSwitchCheckDefault">12.6% - 15.5% g</label>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-               <label class="form-check-label" for="flexSwitchCheckDefault">13.0% - 26.0% g</label>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-               <label class="form-check-label" for="flexSwitchCheckDefault">14.0% - 18.0% g</label>
-            </div>
-
+            <select class="form-select" aria-label="nivel" formControlName="hemo" (change)="anemia($event)">
+              <option selected>seleccione su nivel de Hemoglobina</option>
+              <option value="1">13.0%-26.0%g</option>
+              <option value="2">10.0%-18.0%g</option>
+              <option value="3">11.0%-15.0%g</option>
+              <option value="4">11.5%-15.0%g</option>
+              <option value="5">12.6%-15.5%g</option>
+              <option value="6">12.0%-16.0%g</option>
+              <option value="7">14.0%-18.0%g</option>
+            </select>
           </div>
+            <br>
+            
+            <div *ngIf="showAlerta" class="alert alert-danger" role="alert" >
+              {{showAlerta}}
+            </div>
           <div class="row d-flex justify-content-center">
-            <button class="btn btn-success col-md-4   "><h3>Enviar</h3></button>
+            <button type="submit" class="btn btn-success col-md-4   "><h3>Enviar</h3></button>
            <button class="btn btn-primary mx-2 col">Modificar</button> 
           </div>
+        </form>
+         
       </div>
       <div class="my-5"></div>
       </div> 
+     
             
           
 

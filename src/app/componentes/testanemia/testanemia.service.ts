@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class TestDiabetesService {
-  configUrl = 'http://localhost/bd-parcial/prueba.php';
+export class TestanemiaService {
+  configUrl = 'http://localhost/bd-parcial/anemia.php';
   constructor(private http: HttpClient) { }
 
-  createTestDiabetes(data: any): Observable<any> {
+  createTestAnemia(data: any): Observable<any> {
     const formData: any = new FormData();
     Object.keys(data).forEach((field) => {
       formData.append(field, data[field]);

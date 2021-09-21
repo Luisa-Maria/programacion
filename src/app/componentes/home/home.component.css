@@ -1,4 +1,4 @@
-div{
+div.tittle{
     height: 100px;
     color: cornsilk;
     background-color: blue;
@@ -16,6 +16,6 @@ img{
       margin:auto;
   
 }
-form{
+div.body{
     position:center;
 }

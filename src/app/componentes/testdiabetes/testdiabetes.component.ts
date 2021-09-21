@@ -36,6 +36,7 @@ export class TestdiabetesComponent implements OnInit {
     testData.sintomaD = testData.sintomaD ? 1 : 0;
     testData.sintomaE = testData.sintomaE ? 1 : 0;
     this.testDiabetesService.createTestDiabetes(this.profileForm.value).subscribe((response) => {
+      console.log(response);
       if (response.status === 200) {
         this.showAlertNotification = true;
         setTimeout(() => {
@@ -47,7 +48,7 @@ export class TestdiabetesComponent implements OnInit {
 
         this.showGlucemia = true;
       }
-    }
+    }, (error)=>console.log(error)
     );
   }
   message(event): void{

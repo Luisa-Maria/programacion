@@ -17,8 +17,7 @@ import { TestanemiaComponent } from './componentes/testanemia/testanemia.compone
     NavbarComponent,
     HomeComponent,
     TestdiabetesComponent,
-    TestanemiaComponent,
-
+    TestanemiaComponent
   ],
   imports: [
     BrowserModule,
